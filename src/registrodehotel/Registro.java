@@ -10,20 +10,21 @@ package registrodehotel;
  */
 public class Registro {
     private String nombre; // ingreso de nombre del cliente
-    private float pagoPorNoche; // ingreso de pago por noche
+    private double pagoPorNoche; // ingreso de pago por noche
     private int cantidadNoches; // ingreso de noches hospedadas
-    private float montoBase; // ingreso del Monto Base
-    private float descuento; // ingreso del Descuento
-    private float montoNeto; // Ingreso del Monto Neto
+    private double montoBase; // ingreso del Monto Base
+    private double descuento; // ingreso del Descuento
+    private double montoNeto; // Ingreso del Monto Neto
     
-    public Registro(String nombre, float pagoPorNoche, int cantidadNoches){
+    
+    public Registro(String nombre, double pagoPorNoche, int cantidadNoches, double descuentoCalculado){
             this.nombre = nombre;
             this.pagoPorNoche = pagoPorNoche;
             this.cantidadNoches = cantidadNoches;
+            this.descuento = descuentoCalculado;
             
             //Calculo que hara el sistema
-            this.montoBase = cantidadNoches * pagoPorNoche;
-            this.descuento = (float) (this.montoBase * 0.10);
+            this.montoBase = this.pagoPorNoche * this.cantidadNoches;          
             this.montoNeto = this.montoBase - this.descuento;
     }
 
@@ -35,11 +36,11 @@ public class Registro {
         this.nombre = nombre;
     }
 
-    public float getPagoPorNoche() {
+    public double getPagoPorNoche() {
         return pagoPorNoche;
     }
 
-    public void setPagoPorNoche(float pagoPorNoche) {
+    public void setPagoPorNoche(double pagoPorNoche) {
         this.pagoPorNoche = pagoPorNoche;
     }
 
@@ -51,27 +52,27 @@ public class Registro {
         this.cantidadNoches = cantidadNoches;
     }
 
-    public float getMontoBase() {
+    public double getMontoBase() {
         return montoBase;
     }
 
-    public void setMontoBase(float montoBase) {
+    public void setMontoBase(double montoBase) {
         this.montoBase = montoBase;
     }
 
-    public float getDescuento() {
+    public double getDescuento() {
         return descuento;
     }
 
-    public void setDescuento(float descuento) {
+    public void setDescuento(double descuento) {
         this.descuento = descuento;
     }
 
-    public float getMontoNeto() {
+    public double getMontoNeto() {
         return montoNeto;
     }
 
-    public void setMontoNeto(float montoNeto) {
+    public void setMontoNeto(double montoNeto) {
         this.montoNeto = montoNeto;
-    }          
+    }
 }
